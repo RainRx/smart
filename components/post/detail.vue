@@ -16,7 +16,7 @@
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
   }
 
@@ -66,6 +66,7 @@
         </ul>
       </div>
     </div>
+    <img style="width:100%;margin-bottom:30px" :src="info.screenshot" alt="" v-show="info.screenshot">
     <h1 class="title">{{info.title}}</h1>
     <div class="content-box" v-html="item.content"></div>
   </div>

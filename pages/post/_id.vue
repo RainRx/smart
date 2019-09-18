@@ -15,9 +15,9 @@ export default {
     Detail,
     Sidebar
   },
-  head(){
-    return{
-      title:'文章'
+  head () {
+    return {
+      title: this.info.title
     }
   },
   data () {
@@ -48,6 +48,9 @@ export default {
       this.info.username = info.d.user.username
       this.info.createdAt = format(this.info.createdAt)
       this.info.avatarLarge = `${info.d.user.avatarLarge}`
+      if (this.info.screenshot) {
+        this.info.screenshot = `https://images.weserv.nl/?url=${this.info.screenshot}`
+      }
       // 获取文章详细内容
       params.type = 'entryView'
       const res = await this.$store.dispatch('getDetailData', params)
@@ -56,10 +59,11 @@ export default {
       // 将返回的html字符串包装在一个类名为’article-content‘的标签下 才能被其css文件渲染
       this.item.content = `<div class="article-content">` + this.item.content + `</div>`
       this.item.content = this.item.content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
-      // capture,返回每个匹配的字符串
+        // capture,返回每个匹配的字符串
         const newStr = '<img src="https://images.weserv.nl/?url=' + capture + '" alt="" />';
         return newStr;
       });
+
       // console.log(this.item.content)
       this.closeFullScreen()
 
