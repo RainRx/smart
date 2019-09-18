@@ -43,7 +43,7 @@
 <template>
   <div class="detail">
     <div class="avatar-box">
-      <img class="avatar" src="~/assets/img/avatar.png" />
+      <img class="avatar" :src="info.avatarLarge" />
       <div class="info">
         <span style="font-weight:bolder;font-size:16px;margin-bottom:4px">{{info.username}}</span>
         <span style="color:#999;font-weight:500">{{info.createdAt}}</span>

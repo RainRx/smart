@@ -34,7 +34,7 @@ export default {
   methods: {
     handleImgSrc (src) {
       // return `${src}?imageView2/1/w/160/h/103`
-      return src
+      return `https://images.weserv.nl/?url=${src}`
 
     }
   }

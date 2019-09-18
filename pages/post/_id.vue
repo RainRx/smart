@@ -1,7 +1,7 @@
 <template>
   <div class="post">
-    <sidebar :info="info" :style="show?'':'display:none'"/>
-    <detail :item="item" :info="info" :style="show?'':'display:none'"/>
+    <sidebar :info="info" :style="show?'':'display:none'" />
+    <detail :item="item" :info="info" :style="show?'':'display:none'" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
       item: {},
       info: {},
       loading: null,
-      show:false
+      show: false
     }
   },
   mounted () {
@@ -42,11 +42,20 @@ export default {
       this.info = info.d
       this.info.username = info.d.user.username
       this.info.createdAt = format(this.info.createdAt)
+      this.info.avatarLarge = info.d.user.avatarLarge
       // 获取文章详细内容
       params.type = 'entryView'
       const res = await this.$store.dispatch('getDetailData', params)
       this.item = res.d
+
+      // 将返回的html字符串包装在一个类名为’article-content‘的标签下 才能被其css文件渲染
       this.item.content = `<div class="article-content">` + this.item.content + `</div>`
+      this.item.content = this.item.content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
+      // capture,返回每个匹配的字符串
+        const newStr = '<img src="https://images.weserv.nl/?url=' + capture + '" alt="" />';
+        return newStr;
+      });
+      // console.log(this.item.content)
       this.closeFullScreen()
 
     },
