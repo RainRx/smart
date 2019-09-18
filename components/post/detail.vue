@@ -28,14 +28,26 @@
 
     .avatar {
       height: 44px;
-      width 44px
-      border-radius 50%
+      width: 44px;
+      border-radius: 50%;
     }
 
     .info {
       margin-left: 10px;
       display: flex;
       flex-direction: column;
+
+      .time {
+        color: #999;
+        font-size 13px
+        font-weight 600
+        &:not(:last-child)::after {
+          content: '\B7';
+          color: #71777c;
+          margin-left: 4px;
+          margin-right: 4px;
+        }
+      }
     }
   }
 }
@@ -48,7 +60,10 @@
       <img class="avatar" :src="info.avatarLarge" />
       <div class="info">
         <span style="font-weight:bolder;font-size:16px;margin-bottom:4px">{{info.username}}</span>
-        <span style="color:#999;font-weight:500">{{info.createdAt}}</span>
+        <ul>
+          <span class="time">{{info.createdAt}}</span>
+          <span class="time">阅读 {{info.viewsCount}}</span>
+        </ul>
       </div>
     </div>
     <h1 class="title">{{info.title}}</h1>
@@ -74,7 +89,7 @@ export default {
     // console.log(this.props.info)
   },
   methods: {
-    
+
   }
 }
 </script>
