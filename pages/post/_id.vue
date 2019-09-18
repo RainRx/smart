@@ -15,6 +15,11 @@ export default {
     Detail,
     Sidebar
   },
+  head(){
+    return{
+      title:'文章'
+    }
+  },
   data () {
     return {
       item: {},
@@ -42,7 +47,7 @@ export default {
       this.info = info.d
       this.info.username = info.d.user.username
       this.info.createdAt = format(this.info.createdAt)
-      this.info.avatarLarge = info.d.user.avatarLarge
+      this.info.avatarLarge = `${info.d.user.avatarLarge}`
       // 获取文章详细内容
       params.type = 'entryView'
       const res = await this.$store.dispatch('getDetailData', params)
