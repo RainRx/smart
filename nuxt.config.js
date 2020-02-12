@@ -43,8 +43,14 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    stylus: '~/assets/main.styl'
+  },
+
   /*
    ** Axios module configuration
    */
@@ -54,6 +60,10 @@ export default {
     // See https://github.com/nuxt-community/axios-module#options
   },
   proxy: {
+    '/users': {
+      target: 'http://localhost:3000/users',
+      pathRewrite: { '^/users': '' }
+    },
     '/api': {
       target: 'https://banner-storage-ms.juejin.im',
       pathRewrite: { '^/api': '' }

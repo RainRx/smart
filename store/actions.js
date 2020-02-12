@@ -1,5 +1,13 @@
 import request from '@/service'
 
+export const register = async (store, params) => {
+  return await request.post('/users/register', params)
+}
+
+export const login = async (store, params) => {
+  return await request.get('/users/login', {params})
+}
+
 export const banner = async (store, params) => {
   return await request.get('/api/v1/get_banner', { params: params })
 }

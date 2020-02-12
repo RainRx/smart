@@ -1,4 +1,6 @@
 export default {
   counter: 2,
-  isPhone: false
+  isPhone: false,
+  username: '',
+  isLogin: false
 }
