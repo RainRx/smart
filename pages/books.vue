@@ -54,6 +54,81 @@ export default {
       element.fileType = fileType
       element.createdAt = format(element.createdAt)
     });
+
+    const fakeList = [
+      {
+        link: 'http://129.211.90.155:8080/smart/download?fileId=25',
+        title: '大学物理II－1习题答案（第1章～第8章）(无水印)(1).pdf',
+        createdAt: "2019-09-29 14:15",
+        userData: {
+          username: '陈明霞'
+        },
+        profile: '化学学院',
+        fileType: 'pdf',
+        contentSize: 583318,
+        lastSectionCount: 59,
+        price: 29.9,
+        buyCount: 524
+      },
+      {
+        link: 'http://129.211.90.155:8080/smart/download?fileId=11',
+        title: '信息安全数学基础第四章.pdf',
+        createdAt: "2019-05-29 09:27",
+        userData: {
+          username: '李梦蕾'
+        },
+        profile: '网络空间安全学院',
+        fileType: 'pdf',
+        price: 39.9,
+        buyCount: 828,
+        contentSize: 238249,
+        lastSectionCount: 26,
+      },
+      {
+        link: 'http://129.211.90.155:8080/smart/download?fileId=21',
+        title: '孙子兵法感想.docx',
+        createdAt: "2020-03-11 02:06",
+        userData: {
+          username: '大学长'
+        },
+        profile: '化学工程学院',
+        fileType: 'doc',
+        price: 39.9,
+        buyCount: 9397,
+        contentSize: 334249,
+        lastSectionCount: 32,
+      },
+      {
+        link: 'http://129.211.90.155:8080/smart/download?fileId=14',
+        title: '电路第一章.ppt',
+        createdAt: "2019-03-03 14:40",
+        userData: {
+          username: '可爱的钟jm'
+        },
+        profile: '电子信息学院',
+        fileType: 'ppt',
+        price: 9.9,
+        buyCount: 6397,
+        contentSize: 534344,
+        lastSectionCount: 43,
+      },
+      {
+        link: 'http://129.211.90.155:8080/smart/download?fileId=13',
+        title: '电路第二章.ppt',
+        createdAt: "2019-05-19 15:45",
+        userData: {
+          username: '可爱的钟jm'
+        },
+        profile: '电子信息学院',
+        fileType: 'ppt',
+        contentSize: 58318,
+        lastSectionCount: 9,
+        price: 19.9,
+        buyCount: 690
+      },
+      
+    ]
+    res.d.unshift(...fakeList);
     return {
       lists: res.d
     }

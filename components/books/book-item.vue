@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item" @click="download">
     <div class="poster">
       <img :src="require(`~/assets/img/`+item.fileType+`.png`)">
     </div>
@@ -44,6 +44,11 @@ export default {
     item: {
       type: Object,
       default: () => {}
+    }
+  },
+  methods: {
+    download() {
+      window.open(this.item.link);
     }
   }
 }

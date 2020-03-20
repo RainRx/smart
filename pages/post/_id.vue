@@ -10,6 +10,8 @@ import Detail from '~/components/post/detail.vue'
 import Sidebar from '~/components/post/sidebar.vue'
 import { format } from '~/utils/time.js'
 
+
+
 export default {
   components: {
     Detail,

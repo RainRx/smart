@@ -87,6 +87,10 @@ export default {
     '/papi': {
       target: 'https://post-storage-api-ms.juejin.im',
       pathRewrite: { '^/papi': '' }
+    },
+    '/query': {
+      target: 'https://web-api.juejin.im',
+      pathRewrite: { '^/web-api': '' }
     }
   },
   generate: {

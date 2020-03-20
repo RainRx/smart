@@ -31,3 +31,7 @@ export const getListByLastTime = async (store, params) => {
 export const getDetailData = async (store, params) => {
   return await request.get('/papi/v1/getDetailData', { params })
 }
+
+export const getQuery = async (store, params) => {
+  return await request.post('/query', params)
+}
